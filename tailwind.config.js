@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      colors:{
+        "google": "#DB4437"
+      },
       fontFamily:{
         poppins: "'Poppins', sans-serif",
         news: "'Jacquard 24', system-u"
