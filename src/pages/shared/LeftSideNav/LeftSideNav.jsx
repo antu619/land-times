@@ -26,7 +26,7 @@ const LeftSideNav = () => {
                 }
                 </div>
            </div>
-                {/* Right Nav News */}
+                {/* Left Nav News */}
             <div className='mt-10'>
                 <div>
                     <img src={firstImg} alt="" />
