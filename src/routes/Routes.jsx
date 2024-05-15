@@ -5,32 +5,31 @@ import News from "../pages/News/News";
 import Login from "../pages/Authentication/Login";
 import Register from "../pages/Authentication/Register";
 
-
 const routes = createBrowserRouter([
-    {
-        path: '/',
-        element: <Root />,
-        children: [
-            {
-                path: '/',
-                element: <Home />,
-                loader: () => fetch('/news.json')
-            },
-            {
-                path: '/news/:id',
-                element: <News />,
-                loader: () => fetch('/news.json')
-            },
-            {
-                path: '/login',
-                element: <Login />
-            },
-            {
-                path: '/register',
-                element: <Register />
-            }
-        ]
-    }
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+        loader: () => fetch("/news.json"),
+      },
+      {
+        path: "/news/:id",
+        element: <News />,
+        loader: () => fetch("/news.json"),
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+    ],
+  },
 ]);
 
 export default routes;
