@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { FaCircleUser } from "react-icons/fa6";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
@@ -10,13 +10,13 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <Link to="/">Home</Link>
       </li>
       <li>
-        <NavLink to="/about">About</NavLink>
+        <Link to="/">About</Link>
       </li>
       <li>
-        <NavLink to="/career">Career</NavLink>
+        <Link to="/">Career</Link>
       </li>
     </>
   );
@@ -31,7 +31,23 @@ const Navbar = () => {
     <div>
       <div className="navbar bg-base-100 my-2">
         <div className="navbar-start">
-          <FaCircleUser className="text-4xl mr-2" />
+          {user ? (
+            <div className="flex items-center gap-2">
+              {
+                user.photoURL ?
+                <div className="avatar">
+                <div className="w-12 rounded-full">
+                  <img src={user.photoURL} />
+                </div>
+              </div>
+              :
+              <FaCircleUser className="text-4xl mr-2" />
+              }
+              <p className="font-poppins">{user?.displayName}</p>
+            </div>
+          ) : (
+            <FaCircleUser className="text-4xl mr-2" />
+          )}
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg

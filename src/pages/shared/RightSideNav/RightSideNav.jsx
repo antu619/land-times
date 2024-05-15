@@ -10,22 +10,52 @@ import {
   FaTwitter,
   FaXing,
 } from "react-icons/fa6";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const RightSideNav = () => {
+
+  const { user, providerLogin} = useContext(AuthContext);
+
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+
+  const handleGoogleLogin = () => {
+    providerLogin(googleProvider)
+    .then(result => {
+      console.log(result.user)
+    })
+    .catch(error => console.error(error))
+  }
+
+  const handleGithubLogin = () => {
+    providerLogin(githubProvider)
+    .then(result => {
+      console.log(result.user)
+    })
+    .catch(error => console.error(error))
+  }
+
   return (
     <div>
-      <div className="mt-5">
+      {
+        user ?
+        <div></div>
+        :
+        <div className="mt-5">
         <h3 className="text-xl font-poppins font-bold">Login With</h3>
-        <button className="btn text-google hover:bg-google hover:border-0 btn-outline w-full mt-5 mb-2">
+        <button onClick={handleGoogleLogin} className="btn text-google hover:bg-google hover:border-0 btn-outline w-full mt-5 mb-2">
           <FaGoogle />
           Login With Google
         </button>
-        <button className="btn btn-outline w-full">
+        <button onClick={handleGithubLogin} className="btn btn-outline w-full">
           <FaGithub />
           Login With GitHub
         </button>
       </div>
-      <div className="mt-10">
+      }
+      <div className="mt-5">
         <h3 className="text-xl font-poppins font-bold">Find Us On</h3>
         <div className="border-2 rounded text-center mt-5">
           <div className="py-4">
