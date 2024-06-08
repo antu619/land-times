@@ -23,6 +23,13 @@ The Land Times is an authentication-based project built with React.js and Fireba
 - **Moment.js**: A JavaScript library for parsing, validating, manipulating, and formatting dates.
 - **React-Fast-Marquee**: A React component for creating marquee effects.
 
+## Setup Instructions
+- Clone the repository.
+- Navigate to the project directory.
+- Install dependencies using `npm install`.
+- Set up Firebase for authentication.
+- Run the project using `npm run dev`.
+
 ## Links
 
 [Live](https://land-times.web.app/) Link
